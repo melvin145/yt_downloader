@@ -9,9 +9,9 @@ def downloader(request):
     SAVE_PATH="E:/"
     if request.method=='POST':
         video_url=request.POST['url']
-        video=YouTube(video_url)
+        video=YouTube(video_url).streams.first().download(skip_existing=True)
         
-        return FileResponse(open(video.streams.get_lowest_resolution().download(skip_existing=True),'rb'))
+        return FileResponse(open(video,'rb'),as_attachment=True)
     else:
         return redirect('home')   
     return redirect('home')   
