@@ -11,11 +11,11 @@ def downloader(request):
         url=request.POST['url']
         video=YouTube(url)
         tittle=YouTube(url).title
-        video.streams.get_highest_resolution().download
+        video.streams.get_highest_resolution().download()
         return render(request,'succes.html',{'title':tittle}) 
     else:
         return redirect('home')   
-    return redirect('home')    
-        
+    return redirect('home')   
+    
 
 
