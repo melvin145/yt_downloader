@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+{% block content%}
+<div class="container p-3 my-3 border">
+    <h1 style="color: rgb(82, 82, 82);">Audio_downloader</h1>
+
+    <form action="{% url 'audio_downloader' %}" method="POST"
+    >
+    {% csrf_token%}
+      <div class="form-group">
+     
+        <input type="text" class="form-control" placeholder="Paste the url here..." id="email" name="url">
+      </div>
+   
+      <button type="submit" class="btn btn-danger btn-block">Download</button>
+</div>
+<br>
+<div style="color: rgb(88, 87, 87);" class="container ">
+  
+  <Ol>
+    <h2 style="color: rgb(20, 5, 32);">Steps to download </h2>
+    <li><h4>copy and paste the url of desired youtube video</h4></li>
+    <li><h4>press download</h4></li>
+    <li><h4>Audio_downloader downloads high quality audios</h4></li>
+  </Ol>
+</div>
+
+{% endblock%}
